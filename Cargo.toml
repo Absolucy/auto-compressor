@@ -1,0 +1,42 @@
+[package]
+name = "replay-compressor"
+version = "0.1.0"
+authors = ["Lucy <lucy@absolucy.moe>"]
+edition = "2021"
+license = "Zlib"
+repository = "https://github.com/Absolucy/replay-compressor"
+
+[dependencies]
+cfg-if = "1"
+color-eyre = "0.6"
+log = "0.4"
+pretty_env_logger = "0.5"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+zstd = { version = "0.13", features = ["zstdmt"] }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.58", features = ["Win32_Foundation", "Win32_Storage_FileSystem", "Win32_Security", "Win32_System_Threading"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+overflow-checks = false
+strip = "debuginfo"
+
+[workspace.lints.clippy]
+# presets
+complexity = "warn"
+correctness = "warn"
+perf = "warn"
+style = "warn"
+suspicious = "warn"
+# individual lints
+assigning_clones = "warn"
+create_dir = "warn"
+default_trait_access = "warn"
+inefficient_to_string = "warn"
+redundant_type_annotations = "warn"
+self_named_module_files = "warn"
+str_to_string = "warn"
+string_to_string = "warn"

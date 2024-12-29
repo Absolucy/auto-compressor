@@ -1,0 +1,16 @@
+# The directory to watch and compress files from.
+input-dir = "C:/SS13/data/profiler"
+# The directory to output compressed files to.
+# If unspecified, it will default to the input director
+output-dir = "C:/SS13/data/profiler/compressed"
+# If specified, the process's affinity will be set to the given cores.
+pin-cores = [0, 2, 3, 4, 5]
+# Whether to lower the process's priority class or not.
+# Defaults to true, to minimize the chance of interfering with any other processes or servers.
+lower-process-priority = true
+# The zstd compression level to use.
+# Defaults to 3.
+compression-level = 3
+# Whether to delete the original file after a successful compression.
+# Defaultrs to true.
+delete-after = true
