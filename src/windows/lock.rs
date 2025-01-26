@@ -4,7 +4,7 @@ use std::{os::windows::ffi::OsStrExt, path::Path};
 use windows::{
 	core::PCWSTR,
 	Win32::{
-		Foundation::{CloseHandle, ERROR_SHARING_VIOLATION, GENERIC_READ, HANDLE},
+		Foundation::{CloseHandle, ERROR_SHARING_VIOLATION, GENERIC_READ},
 		Storage::FileSystem::{
 			CreateFileW, FILE_FLAGS_AND_ATTRIBUTES, FILE_SHARE_READ, OPEN_EXISTING,
 		},
@@ -28,7 +28,7 @@ pub fn check_file_writable(path: impl AsRef<Path>) -> Result<bool> {
 			None,
 			OPEN_EXISTING,
 			FILE_FLAGS_AND_ATTRIBUTES::default(),
-			HANDLE::default(),
+			None,
 		)
 	} {
 		Ok(handle) => {

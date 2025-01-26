@@ -1,10 +1,10 @@
 [package]
-name = "replay-compressor"
+name = "auto-compressor"
 version = "0.1.0"
 authors = ["Lucy <lucy@absolucy.moe>"]
 edition = "2021"
 license = "Zlib"
-repository = "https://github.com/Absolucy/replay-compressor"
+repository = "https://github.com/Absolucy/auto-compressor"
 
 [dependencies]
 cfg-if = "1"
@@ -16,7 +16,7 @@ toml = "0.8"
 zstd = { version = "0.13", features = ["zstdmt"] }
 
 [target.'cfg(windows)'.dependencies]
-windows = { version = "0.58", features = ["Win32_Foundation", "Win32_Storage_FileSystem", "Win32_Security", "Win32_System_Threading"] }
+windows = { version = "0.59", features = ["Win32_Foundation", "Win32_Storage_FileSystem", "Win32_Security", "Win32_System_Threading"] }
 
 [profile.release]
 lto = "thin"
