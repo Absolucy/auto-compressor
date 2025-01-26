@@ -16,10 +16,10 @@ jobs:
               uses: actions/checkout@v4
             - name: Install Rust Toolchain
               uses: actions-rust-lang/setup-rust-toolchain@v1
+              with:
+                rustflags: --remap-path-prefix C:\Users\runneradmin\.cargo=/cargo
             - name: Build (release)
               run: cargo build --release --locked --target x86_64-pc-windows-msvc
-              env:
-                RUSTFLAGS: --remap-path-prefix C:\Users\runneradmin\.cargo=/cargo
             - name: Upload Build
               uses: actions/upload-artifact@v4
               with:
