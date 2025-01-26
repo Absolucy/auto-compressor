@@ -14,9 +14,13 @@ pretty_env_logger = "0.5"
 serde = { version = "1", features = ["derive"] }
 toml = "0.8"
 zstd = { version = "0.13", features = ["zstdmt"] }
+vc-ltl = { version = "5.2.1-Beta3", optional = true }
 
 [target.'cfg(windows)'.dependencies]
 windows = { version = "0.59", features = ["Win32_Foundation", "Win32_Storage_FileSystem", "Win32_Security", "Win32_System_Threading"] }
+
+[features]
+default = ["vc-ltl"]
 
 [profile.release]
 lto = "thin"
